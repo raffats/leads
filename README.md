@@ -47,6 +47,10 @@ uvicorn leads_backend.api:app --reload
 
 Parâmetros: `city`, `state`, `cnae`, `include_secondary_cnae`, `active_only`, `page` e `page_size` (máximo 500). A API retorna estabelecimentos; redes com várias filiais podem aparecer em mais de uma linha, cada uma com seu próprio CNPJ.
 
+## Publicar na Vercel
+
+O `index.py` exporta a aplicação FastAPI e `vercel.json` inclui o banco filtrado no pacote da função. No projeto da Vercel, conecte o repositório `elem-ecossistema/dados_leads`, habilite Git LFS nas configurações Git e publique a branch `main`. Depois, valide `/health` e `/docs` no domínio gerado. Atualizações do banco exigem uma nova versão no Git LFS e uma nova implantação.
+
 ## Fonte e convenções
 
 - Fonte: [Dados Abertos do CNPJ da Receita Federal](https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/cadastros).
