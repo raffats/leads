@@ -1,0 +1,18 @@
+[project]
+name = "curitiba-leads-api"
+version = "0.1.0"
+description = "Backend local para filtrar estabelecimentos a partir dos dados abertos do CNPJ"
+requires-python = ">=3.12,<3.16"
+dependencies = [
+  "duckdb>=2.0,<3",
+  "fastapi>=0.115,<1",
+  "requests>=2.32,<3",
+  "uvicorn>=0.34,<1",
+]
+
+[project.scripts]
+leads-import = "leads_backend.importer:main"
+leads-download = "leads_backend.downloader:main"
+
+[tool.setuptools.packages.find]
+include = ["leads_backend*"]
